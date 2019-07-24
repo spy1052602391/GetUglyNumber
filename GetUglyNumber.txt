@@ -1,0 +1,27 @@
+
+import ½£Ö¸offer.¶þ²æÊ÷.TreeNode;
+
+import java.util.*;
+
+class Solution {
+    public int GetUglyNumber_Solution(int index) {
+        TreeSet<Long> set = new TreeSet<>();
+        set.add((long)1);
+        Long result = (long)0;
+        while(index != 0) {
+            set.add(set.first() * 2);
+            set.add(set.first() * 3);
+            set.add(set.first() * 5);
+            result = set.pollFirst();
+            index--;
+        }
+        return Integer.valueOf(result+"");
+    }
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(new Solution().GetUglyNumber_Solution(1500));
+    }
+}
